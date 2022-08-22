@@ -22,14 +22,10 @@ import {
   useCallback,
   useEffect,
 } from 'react';
-import {
-  FieldError,
-  FieldValues,
-  UseFormSetError,
-  UseFormTrigger,
-} from 'react-hook-form';
+import { FieldError, UseFormSetError, UseFormTrigger } from 'react-hook-form';
 import { FiAlertCircle, FiPlus } from 'react-icons/fi';
 import { api } from '../../services/api';
+import { ImageProps } from '../Form/FormAddImage';
 
 export interface FileInputProps {
   name: string;
@@ -37,11 +33,11 @@ export interface FileInputProps {
   setImageUrl: Dispatch<SetStateAction<string>>;
   localImageUrl: string;
   setLocalImageUrl: Dispatch<SetStateAction<string>>;
-  setError: UseFormSetError<FieldValues>;
+  setError: UseFormSetError<ImageProps>;
   onChange: (
     event: React.ChangeEvent<HTMLInputElement>
   ) => Promise<boolean | void>;
-  trigger: UseFormTrigger<FieldValues>;
+  trigger: UseFormTrigger<ImageProps>;
 }
 
 const FileInputBase: ForwardRefRenderFunction<
